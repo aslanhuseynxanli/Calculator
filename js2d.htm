@@ -1,0 +1,74 @@
+ <!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Document</title>
+        <link href="https://fonts.googleapis.com/css2?family=Cute+Font&family=Zen+Dots&display=swap" rel="stylesheet" />
+        <style>
+            * { box-sizing: border-box;}
+            body { margin: 0; height: 100vh; display: flex}
+            #calculator {
+                margin: auto; padding: 30px; box-shadow: 0 0 10px #333;
+                border-radius: 20px; background-color: #eee;
+            }
+            #display { width: 240px; height: 40px; margin: 5px; border:  1px solid #333;
+                border-radius: 5px; box-shadow: 2px 2px #333 inset; outline: none;
+                padding:  0 10px; text-align: right; font: 3em 'Cute Font', cursive;
+            }
+            button {
+                width: 50px; height: 40px; margin: 5px; border: 1px solid #333;
+                border-radius: 5px; box-shadow: 2px 2px #333;
+            }
+            button:active {box-shadow: 0 0 2px #333;}
+            #plus { background: orange; width: 115px}
+            #eq { background: green; width: 180px}
+        </style>
+    </head>
+    <body>
+        <div id="calculator">
+            <div>
+                <input id="display" type="text"/>
+            </div>
+            <div>
+                <button onclick="yaz('7')">7</button>
+                <button onclick="yaz('8')">8</button>
+                <button onclick="yaz('9')">9</button>
+                <button onclick="yaz('/')">÷</button>
+            </div>
+            <div>
+                <button onclick="yaz('4')">4</button>
+                <button onclick="yaz('5')">5</button>
+                <button onclick="yaz('6')">6</button>
+                <button onclick="yaz('*')">×</button>
+            </div>
+            <div>
+                <button onclick="yaz('1')">1</button>
+                <button onclick="yaz('2')">2</button>
+                <button onclick="yaz('3')">3</button>
+                <button onclick="yaz('-')">-</button>
+            </div>
+            <div>
+                <button onclick="yaz('.')">.</button>
+                <button onclick="yaz('0')">0</button>
+                <button onclick="yaz('+')" id="plus">+</button>
+            </div>
+            <div>
+                <button onclick="sil()">C</button>
+                <button onclick="hesabla()" id="eq">=</button>
+            </div>
+        </div>
+
+        <script>
+            const display = document.getElementById("display")
+            function sil() {
+                display.value = '';
+            }
+            function hesabla() {
+                display.value = eval(display.value);
+            }
+            function yaz(x) {
+                display.value += x;
+            }
+        </script>
+    </body>
+</html>
